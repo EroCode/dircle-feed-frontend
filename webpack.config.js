@@ -1,9 +1,16 @@
 const path = require('path');
+// const resolve = require('path').resolve;
+const url = require('url');
+
+// const webpack = require('webpack');
+
 // var ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-module.exports = {
+const publicPath = '';
+
+module.exports = (options = {}) => ({
     entry: './src/main.js',
     output: {
         filename: 'bundle.js',
@@ -14,12 +21,13 @@ module.exports = {
             test: /\.css$/,
             use: [
                 'style-loader',
-                {
-                    loader: 'css-loader',
-                    options: {
-                        importLoaders: 1
-                    }
-                },
+                'css-loader',
+                // {
+                //     loader: 'css-loader',
+                //     options: {
+                //         importLoaders: 1
+                //     }
+                // },
                 'postcss-loader'
             ]
             // use: ExtractTextPlugin.extract({
@@ -55,14 +63,41 @@ module.exports = {
                 'eslint-loader'
             ],
             exclude: /node_modules/
-        }]
+        },
+        {
+            test: /\.(png|jpg|jpeg|gif|eot|ttf|woff|woff2|svg|svgz)(\?.+)?$/,
+            use: [{
+                loader: 'url-loader',
+                options: {
+                    limit: 10000
+                }
+            }]
+        }
+        ]
     },
     plugins: [
         new CleanWebpackPlugin(['dist']),
         // new ExtractTextPlugin('bundle.css'),
         new HtmlWebpackPlugin({
-            title: 'Output Management',
+            title: 'DircleFeed',
             template: 'src/index.html'
         })
-    ]
-};
+    ],
+    devServer: {
+        host: '127.0.0.1',
+        port: 8010,
+        proxy: {
+            '/api/': {
+                target: 'http://127.0.0.1:8080',
+                changeOrigin: true,
+                pathRewrite: {
+                    '^/api': ''
+                }
+            }
+        },
+        historyApiFallback: {
+            index: url.parse(options.dev ? '/assets/' : publicPath).pathname
+        }
+    },
+    devtool: options.dev ? '#eval-source-map' : '#source-map'
+});
