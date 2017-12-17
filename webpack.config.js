@@ -96,7 +96,7 @@ module.exports = (options = {}) => ({
             }
         },
         historyApiFallback: {
-            index: url.parse(options.dev ? '/assets/' : publicPath).pathname
+            index: url.parse(options.dev ? '/static/' : publicPath).pathname
         }
     },
     devtool: options.dev ? '#eval-source-map' : '#source-map'
