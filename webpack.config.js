@@ -8,6 +8,7 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const publicPath = '';
+/* global __dirname */
 
 module.exports = (options = {}) => ({
     entry: './src/main.js',
@@ -18,46 +19,14 @@ module.exports = (options = {}) => ({
     module: {
         rules: [{
             test: /\.css$/,
-            // use: [
-            //     'style-loader',
-            //     'css-loader',
-            //     // {
-            //     //     loader: 'css-loader',
-            //     //     options: {
-            //     //         importLoaders: 1
-            //     //     }
-            //     // },
-            //     'postcss-loader'
-            // ]
             use: ExtractTextPlugin.extract({  
                 fallback: 'style-loader',  
                 use: [  
                     'css-loader',
                     'postcss-loader'
                 ]  
-            })  
-            // use: ExtractTextPlugin.extract({
-            //     fallback: 'style-loader',
-            //     use: [{
-            //             loader: 'css-loader',
-            //             options: {
-            //                 importLoaders: 1
-            //             }
-            //         },
-            //         'postcss-loader'
-            //     ]
-            // })
+            })
         },
-        // {
-        //     test: /\.less$/,
-        //     use: [{
-        //         loader: 'style-loader' // creates style nodes from JS strings
-        //     }, {
-        //         loader: 'css-loader' // translates CSS into CommonJS
-        //     }, {
-        //         loader: 'less-loader' // compiles Less to CSS
-        //     }]
-        // },
         {
             test: /\.scss$/,
             // loader: 'style!css!sass'
