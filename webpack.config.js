@@ -3,9 +3,8 @@ const path = require('path');
 const url = require('url');
 
 // const webpack = require('webpack');
-
-// var ExtractTextPlugin = require('extract-text-webpack-plugin');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
+// const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const publicPath = '';
@@ -19,17 +18,24 @@ module.exports = (options = {}) => ({
     module: {
         rules: [{
             test: /\.css$/,
-            use: [
-                'style-loader',
-                'css-loader',
-                // {
-                //     loader: 'css-loader',
-                //     options: {
-                //         importLoaders: 1
-                //     }
-                // },
-                'postcss-loader'
-            ]
+            // use: [
+            //     'style-loader',
+            //     'css-loader',
+            //     // {
+            //     //     loader: 'css-loader',
+            //     //     options: {
+            //     //         importLoaders: 1
+            //     //     }
+            //     // },
+            //     'postcss-loader'
+            // ]
+            use: ExtractTextPlugin.extract({  
+                fallback: 'style-loader',  
+                use: [  
+                    'css-loader',
+                    'postcss-loader'
+                ]  
+            })  
             // use: ExtractTextPlugin.extract({
             //     fallback: 'style-loader',
             //     use: [{
@@ -54,11 +60,27 @@ module.exports = (options = {}) => ({
         // },
         {
             test: /\.scss$/,
-            loader: 'style!css!sass'
+            // loader: 'style!css!sass'
+            use: ExtractTextPlugin.extract({  
+                fallback: 'style-loader',  
+                use: [  
+                    'css-loader',
+                    'postcss-loader',
+                    'sass-loader'
+                ]  
+            })  
         },
         {
             test: /\.vue$/,
-            loader: 'vue-loader'
+            loader: 'vue-loader',
+            options: {
+                loaders: {
+                    scss: ExtractTextPlugin.extract({
+                        use: ['css-loader','postcss-loader','sass-loader'],
+                        fallback: 'vue-style-loader' 
+                    })
+                }
+            }
         },
         {
             test: /(\.jsx|\.js)$/,
@@ -80,8 +102,8 @@ module.exports = (options = {}) => ({
         ]
     },
     plugins: [
-        new CleanWebpackPlugin(['dist']),
-        // new ExtractTextPlugin('bundle.css'),
+        // new CleanWebpackPlugin(['dist']),
+        new ExtractTextPlugin('bundle.css'),
         new HtmlWebpackPlugin({
             title: 'DircleFeed',
             template: 'src/index.html'

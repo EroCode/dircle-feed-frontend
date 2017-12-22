@@ -85,6 +85,9 @@ npm run mock
     * vue-router
     * axios
     * json-server // for mock
+    * mockjs
 * CSS
+    * SASS
     * PostCSS
     * cssnext
+    * element-ui
