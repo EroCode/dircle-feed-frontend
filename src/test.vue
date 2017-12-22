@@ -12,7 +12,7 @@ module.exports = {
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 p {
     color: #00F;
 }
