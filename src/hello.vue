@@ -22,12 +22,12 @@
 </template>
 
 <script>
-    import test from "./test.vue";
+    import test from './test.vue';
 
     module.exports = {
         data: function () {
             return {
-                vue_hello: "hello"
+                vue_hello: 'hello'
             };
         },
         components: {

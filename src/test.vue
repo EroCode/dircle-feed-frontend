@@ -6,10 +6,10 @@
 module.exports = {
     data: function() {
         return {
-            vue_name: "component"
-        }
+            vue_name: 'component'
+        };
     }
-}
+};
 </script>
 
 <style scoped lang="scss">
