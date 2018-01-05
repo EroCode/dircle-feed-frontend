@@ -1,7 +1,7 @@
 <template>
 <footer>
     <div class="ctn">
-        <p>Dircle Feed</p>
+        <p>Dircle Feed @ EroCode Team</p>
         <p>Made with ♥ by Dimpurr & Heymind</p>
     </div>
 </footer>
@@ -18,7 +18,10 @@ module.exports = {
 </script>
 
 <style scoped lang="scss">
+@import "../../vars.scss";
 p {
-    color: #777;
+    font-size: 12px;
+    margin: 0;
+    color: $c-text-light;
 }
 </style>

@@ -1,0 +1,23 @@
+$c-link: #777;
+$c-link-dark: #333;
+$c-border: #DDD;
+$c-border-light: #EEE;
+$c-shadow: #DDD;
+$c-text-item: #666;
+$c-text-light: #777;
+$c-text-lighter: #AAA;
+$c-bg-item: #FAFAFA;
+$c-bg-item-hover: #FFF;
+$c-bg-tag: #DDD;
+$size-shadow-item: 20px;
+$size-text-item: 14px;
+
+@mixin flat-list-ul {
+    // ul {
+        margin: 0;
+        padding: 0;
+        li {
+            list-style: none;
+        }
+    // }
+}

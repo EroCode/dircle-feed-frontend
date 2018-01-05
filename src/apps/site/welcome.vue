@@ -6,7 +6,7 @@
 module.exports = {
     data: function() {
         return {
-            vue_name: 'component'
+            vue_name: 'w component'
         };
     }
 };

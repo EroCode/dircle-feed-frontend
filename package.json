@@ -22,6 +22,7 @@
   "dependencies": {
     "axios": "^0.17.1",
     "element-ui": "^2.0.8",
+    "horwheel": "^1.0.1",
     "lodash": "^4.17.4",
     "mockjs": "^1.0.1-beta3",
     "vue": "^2.5.3",

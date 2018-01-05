@@ -11,6 +11,7 @@ import App from './app.vue';
 import SiteMy from './apps/site/my.vue';
 import SiteSubscribe from './apps/site/subscribe.vue';
 import SiteDiscover from './apps/site/discover.vue';
+import SiteWelcome from './apps/site/welcome.vue';
 
 // vue-router
 
@@ -25,6 +26,9 @@ const routes = [{
 },{
     path: '/discover',
     component: SiteDiscover
+},{
+    path: '/welcome',
+    component: SiteWelcome
 }];
 
 const router = new VueRouter({

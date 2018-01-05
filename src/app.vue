@@ -10,7 +10,7 @@
         <h3>Router</h3>
         <p>
             <router-link to="/test">Go to Test</router-link>
-        <!-- </p> -->
+        </p> -->
         <router-view></router-view>
 
         <!-- <el-container> 
@@ -38,8 +38,8 @@ module.exports = {
         };
     },
     components: {
-        navbar: navbar,
-        foot: foot
+        navbar,
+        foot
     }
 };
 </script>
