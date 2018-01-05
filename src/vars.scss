@@ -3,14 +3,17 @@ $c-link-dark: #333;
 $c-border: #DDD;
 $c-border-light: #EEE;
 $c-shadow: #DDD;
+$c-text-h: #444;
 $c-text-item: #666;
+$c-text-tag: #333;
 $c-text-light: #777;
 $c-text-lighter: #AAA;
 $c-bg-item: #FAFAFA;
 $c-bg-item-hover: #FFF;
 $c-bg-tag: #DDD;
+$size-radius-small: 3px;
 $size-shadow-item: 20px;
-$size-text-item: 14px;
+$size-text-item: 13px;
 
 @mixin flat-list-ul {
     // ul {

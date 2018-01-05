@@ -19,6 +19,11 @@ module.exports = {
 
 <style scoped lang="scss">
 @import "../../vars.scss";
+
+footer {
+    margin-top: 20px;
+}
+
 p {
     font-size: 12px;
     margin: 0;

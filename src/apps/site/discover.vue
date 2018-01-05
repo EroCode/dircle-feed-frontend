@@ -3,7 +3,7 @@
     <section>
         <h3>文章集</h3>
         <div class="hor">
-            <articlesColle_list></articlesColle_list>
+            <colleItem></colleItem>
         </div>
     </section>
 </div>
@@ -11,7 +11,7 @@
 
 <script>
 import horwheel from 'horwheel';
-import articlesColle_list from './common/articlesColle_list.vue';
+import colleItem from './common/colleItem.vue';
 
 module.exports = {
     data: function() {
@@ -20,7 +20,7 @@ module.exports = {
         };
     },
     components: {
-        articlesColle_list
+        colleItem
     },
     mounted() {
         horwheel(document.querySelector('.hor'));
@@ -29,7 +29,13 @@ module.exports = {
 </script>
 
 <style scoped lang="scss">
-p {
-    color: #00F;
+@import "../../vars.scss";
+
+section {
+    & > h3 {
+        margin-left: 10px;
+        font-weight: normal;
+        color: $c-text-h;
+    }
 }
 </style>
