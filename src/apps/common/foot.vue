@@ -1,5 +1,10 @@
 <template>
-    <p>I'm {{ vue_name }} !</p>
+<footer>
+    <div class="ctn">
+        <p>Dircle Feed</p>
+        <p>Made with ♥ by Dimpurr & Heymind</p>
+    </div>
+</footer>
 </template>
 
 <script>
@@ -14,6 +19,6 @@ module.exports = {
 
 <style scoped lang="scss">
 p {
-    color: #00F;
+    color: #777;
 }
 </style>

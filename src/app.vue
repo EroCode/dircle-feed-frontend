@@ -10,10 +10,10 @@
         <h3>Router</h3>
         <p>
             <router-link to="/test">Go to Test</router-link>
-        </p>
+        <!-- </p> -->
         <router-view></router-view>
 
-        <el-container>
+        <!-- <el-container> 
             <el-header>Header</el-header>
             <el-container>
                 <el-aside width="200px">Aside</el-aside>
